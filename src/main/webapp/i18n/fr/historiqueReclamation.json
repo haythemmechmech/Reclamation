@@ -1,0 +1,31 @@
+
+{
+    "reclamationApp": {
+        "historiqueReclamation" : {
+            "home": {
+                "title": "HistoriqueReclamations",
+                "createLabel": "Créer un nouveau Historique Reclamation",
+                "createOrEditLabel": "Créer ou éditer un Historique Reclamation"
+            },
+            "created": "Un nouveau Historique Reclamation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Historique Reclamation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Historique Reclamation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Historique Reclamation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Historique Reclamation"
+            },
+            "description": "Description",
+            "titre": "Titre",
+            "created_at": "Created At",
+            "created_by": "Created By",
+            "affected_to": "Affected To",
+            "reclamation_id": "Reclamation Id",
+            "updated_at": "Updated At",
+            "phase_libelle": "Phase Libelle",
+            "etat_libelle": "Etat Libelle",
+            "type_libelle": "Type Libelle"
+        }
+    }
+}

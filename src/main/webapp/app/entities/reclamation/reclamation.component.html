@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="reclamationApp.reclamation.home.title">Reclamations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reclamation" [routerLink]="['/reclamation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="reclamationApp.reclamation.home.createLabel">
+            Create new Reclamation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="reclamations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.description">Description</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.titre">Titre</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.created_at">Created At</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.created_by">Created By</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.updated_at">Updated At</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.affected_to">Affected To</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.nm_Etat">Nm Etat</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.nm_TypeReclamation">Nm Type Reclamation</span></th>
+            <th><span jhiTranslate="reclamationApp.reclamation.phase">Phase</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let reclamation of reclamations ;trackBy: trackId">
+                <td><a [routerLink]="['/reclamation', reclamation.id, 'view' ]">{{reclamation.id}}</a></td>
+                <td>{{reclamation.description}}</td>
+                <td>{{reclamation.titre}}</td>
+                <td>{{reclamation.created_at | date:'medium'}}</td>
+                <td>{{reclamation.created_by}}</td>
+                <td>{{reclamation.updated_at | date:'medium'}}</td>
+                <td>{{reclamation.affected_to}}</td>
+                <td>
+                    <span *ngFor="let nm_Etat of reclamation.nm_Etats; let last = last">
+                            <a class="form-control-static" [routerLink]="['../nm-etat', nm_Etat?.id, 'view' ]">{{nm_Etat.libelle}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="reclamation.nm_TypeReclamation">
+                        <a [routerLink]="['../nm-type-reclamation', reclamation.nm_TypeReclamation?.id, 'view' ]" >{{reclamation.nm_TypeReclamation?.libelle}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let phase of reclamation.phases; let last = last">
+                            <a class="form-control-static" [routerLink]="['../action', phase?.id, 'view' ]">{{phase.nm_PhaseSuivants[0].libelle}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/reclamation', reclamation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/reclamation', reclamation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'reclamation/'+ reclamation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="historiqueReclamation">
+            <h2><span jhiTranslate="reclamationApp.historiqueReclamation.detail.title">Historique Reclamation</span> {{historiqueReclamation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.description">Description</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.titre">Titre</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.titre}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.created_at">Created At</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.created_at}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.created_by">Created By</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.created_by}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.affected_to">Affected To</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.affected_to}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.reclamation_id">Reclamation Id</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.reclamation_id}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.updated_at">Updated At</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.updated_at}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.phase_libelle">Phase Libelle</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.phase_libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.etat_libelle">Etat Libelle</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.etat_libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.historiqueReclamation.type_libelle">Type Libelle</span></dt>
+                <dd>
+                    <span>{{historiqueReclamation.type_libelle}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/historique-reclamation', historiqueReclamation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

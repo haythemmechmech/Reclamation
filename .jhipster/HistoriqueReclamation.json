@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "created_by",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "affected_to",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reclamation_id",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "updated_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "phase_libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat_libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type_libelle",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20201021135559",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "historique_reclamation",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

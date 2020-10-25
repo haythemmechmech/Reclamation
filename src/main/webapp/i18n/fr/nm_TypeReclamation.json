@@ -1,0 +1,23 @@
+
+{
+    "reclamationApp": {
+        "nm_TypeReclamation" : {
+            "home": {
+                "title": "Nm_TypeReclamations",
+                "createLabel": "Créer un nouveau Nm Type Reclamation",
+                "createOrEditLabel": "Créer ou éditer un Nm Type Reclamation"
+            },
+            "created": "Un nouveau Nm Type Reclamation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Nm Type Reclamation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Nm Type Reclamation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Nm Type Reclamation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Nm Type Reclamation"
+            },
+            "libelle": "Libelle",
+            "code": "Code"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20201012152702",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "nm_type_reclamation",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

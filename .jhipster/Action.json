@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "nm_PhaseSuivant",
+            "otherEntityName": "nm_Phase",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "libelle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "action"
+        },
+        {
+            "relationshipName": "phase",
+            "otherEntityName": "reclamation",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "phase"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "phase_precedente",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ordre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phase_actuelle",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20201016110534",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "action",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

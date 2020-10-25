@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "nm_Etat",
+            "otherEntityName": "nm_Etat",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "libelle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "reclamation"
+        },
+        {
+            "relationshipName": "nm_TypeReclamation",
+            "otherEntityName": "nm_TypeReclamation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipName": "phase",
+            "otherEntityName": "action",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "nm_PhaseSuivants[0].libelle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "phase"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "created_by",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updated_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "affected_to",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20201012142711",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "reclamation",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

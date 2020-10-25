@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="DELL (generated)" id="1602515655479-1">
+        <addPrimaryKey columnNames="reclamations_id, nm_etats_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1602515655479-2">
+        <addForeignKeyConstraint baseColumnNames="reclamations_id" baseTableName="reclamation_nm_etat" constraintName="FKpw61crpmjumo6qfl0ymkx8xtq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1602515655479-3">
+        <addForeignKeyConstraint baseColumnNames="nm_etats_id" baseTableName="reclamation_nm_etat" constraintName="FKtmyv36pfykdo4kemrpb3xpnit" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1602515655479-4">
+        <dropTable tableName="nm_phase"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1602515655479-5">
+        <addNotNullConstraint columnDataType="bigint" columnName="nm_etats_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1602515655479-6">
+        <addNotNullConstraint columnDataType="bigint" columnName="reclamations_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+</databaseChangeLog>

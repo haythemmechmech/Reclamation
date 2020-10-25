@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Reclamation.
+    -->
+    <changeSet id="20201012142711-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="reclamations_id"
+                                 baseTableName="reclamation_nm_etat"
+                                 constraintName="fk_reclamation_nm_etat_reclamations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reclamation"/>
+        <addForeignKeyConstraint baseColumnNames="nm_etats_id"
+                                 baseTableName="reclamation_nm_etat"
+                                 constraintName="fk_reclamation_nm_etat_nm_etats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nm_etat"/>
+        
+        <addForeignKeyConstraint baseColumnNames="nm_type_reclamation_id"
+                                 baseTableName="reclamation"
+                                 constraintName="fk_reclamation_nm_type_reclamation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nm_type_reclamation"/>
+
+        <addForeignKeyConstraint baseColumnNames="reclamations_id"
+                                 baseTableName="reclamation_phase"
+                                 constraintName="fk_reclamation_phase_reclamations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reclamation"/>
+        <addForeignKeyConstraint baseColumnNames="phases_id"
+                                 baseTableName="reclamation_phase"
+                                 constraintName="fk_reclamation_phase_phases_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="action"/>
+        
+    </changeSet>
+</databaseChangeLog>

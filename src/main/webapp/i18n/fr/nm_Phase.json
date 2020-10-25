@@ -1,0 +1,24 @@
+
+{
+    "reclamationApp": {
+        "nm_Phase" : {
+            "home": {
+                "title": "Nm_Phases",
+                "createLabel": "Créer un nouveau Nm Phase",
+                "createOrEditLabel": "Créer ou éditer un Nm Phase"
+            },
+            "created": "Un nouveau Nm Phase a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Nm Phase avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Nm Phase avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Nm Phase {{ id }} ?"
+            },
+            "detail": {
+                "title": "Nm Phase"
+            },
+            "libelle": "Libelle",
+            "code": "Code",
+            "action": "Action"
+        }
+    }
+}

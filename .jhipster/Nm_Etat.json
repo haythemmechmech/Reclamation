@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "reclamation",
+            "otherEntityName": "reclamation",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "nm_Etat"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20201012143719",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "nm_etat",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

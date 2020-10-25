@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reclamation">
+            <h2><span jhiTranslate="reclamationApp.reclamation.detail.title">Reclamation</span> {{reclamation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="reclamationApp.reclamation.description">Description</span></dt>
+                <dd>
+                    <span>{{reclamation.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.titre">Titre</span></dt>
+                <dd>
+                    <span>{{reclamation.titre}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.created_at">Created At</span></dt>
+                <dd>
+                    <span>{{reclamation.created_at}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.created_by">Created By</span></dt>
+                <dd>
+                    <span>{{reclamation.created_by}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.updated_at">Updated At</span></dt>
+                <dd>
+                    <span>{{reclamation.updated_at}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.affected_to">Affected To</span></dt>
+                <dd>
+                    <span>{{reclamation.affected_to}}</span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.nm_Etat">Nm Etat</span></dt>
+                <dd>
+                    <span *ngFor="let nm_Etat of reclamation.nm_Etats; let last = last">
+                        <a [routerLink]="['/nm-etat', nm_Etat?.id, 'view' ]">{{nm_Etat.libelle}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.nm_TypeReclamation">Nm Type Reclamation</span></dt>
+                <dd>
+                    <div *ngIf="reclamation.nm_TypeReclamation">
+                        <a [routerLink]="['/nm-type-reclamation', reclamation.nm_TypeReclamation?.id, 'view']">{{reclamation.nm_TypeReclamation?.libelle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="reclamationApp.reclamation.phase">Phase</span></dt>
+                <dd>
+                    <span *ngFor="let phase of reclamation.phases; let last = last">
+                        <a [routerLink]="['/action', phase?.id, 'view' ]">{{phase.nm_PhaseSuivants[0].libelle}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reclamation', reclamation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

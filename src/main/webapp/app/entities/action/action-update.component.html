@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-action-heading" jhiTranslate="reclamationApp.action.home.createOrEditLabel">Create or edit a Action</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!action.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="action.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.action.phase_precedente" for="field_phase_precedente">Phase Precedente</label>
+                    <input type="text" class="form-control" name="phase_precedente" id="field_phase_precedente"
+                        [(ngModel)]="action.phase_precedente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.action.ordre" for="field_ordre">Ordre</label>
+                    <input type="text" class="form-control" name="ordre" id="field_ordre"
+                        [(ngModel)]="action.ordre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.action.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="action.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.action.phase_actuelle" for="field_phase_actuelle">Phase Actuelle</label>
+                    <input type="text" class="form-control" name="phase_actuelle" id="field_phase_actuelle"
+                        [(ngModel)]="action.phase_actuelle" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="reclamationApp.action.nm_PhaseSuivant" for="field_nm_PhaseSuivant">Nm Phase Suivant</label>
+                    <select class="form-control" id="field_nm_PhaseSuivant" multiple name="nm_PhaseSuivant" [(ngModel)]="action.nm_PhaseSuivants">
+                        <option [ngValue]="getSelected(action.nm_PhaseSuivants, nm_PhaseOption)" *ngFor="let nm_PhaseOption of nm_phases; trackBy: trackNm_PhaseById">{{nm_PhaseOption.libelle}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

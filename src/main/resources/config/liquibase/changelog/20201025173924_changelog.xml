@@ -1,0 +1,87 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="DELL (generated)" id="1603647593636-1">
+        <addPrimaryKey columnNames="actions_id, nm_phase_suivants_id" tableName="action_nm_phase_suivant"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-2">
+        <addPrimaryKey columnNames="reclamations_id, nm_etats_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-3">
+        <addPrimaryKey columnNames="reclamations_id, phases_id" tableName="reclamation_phase"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-4">
+        <addPrimaryKey columnNames="id" constraintName="historique_reclamationPK" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-5">
+        <addForeignKeyConstraint baseColumnNames="reclamations_id" baseTableName="reclamation_phase" constraintName="FK1knjqf8w3l4tdf2h88qxe6vyu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-6">
+        <addForeignKeyConstraint baseColumnNames="nm_type_reclamation_id" baseTableName="reclamation" constraintName="FKan83c3ob2j7oephlv2mb2st0n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nm_type_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-7">
+        <addForeignKeyConstraint baseColumnNames="phases_id" baseTableName="reclamation_phase" constraintName="FKdw4skf73uceifq893j09vtpy8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="action"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-8">
+        <addForeignKeyConstraint baseColumnNames="nm_phase_suivants_id" baseTableName="action_nm_phase_suivant" constraintName="FKel3080bnkgw587iccar839rxu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nm_phase"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-9">
+        <addForeignKeyConstraint baseColumnNames="actions_id" baseTableName="action_nm_phase_suivant" constraintName="FKoxa0trfoxka04g14yg2030txy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="action"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-10">
+        <addForeignKeyConstraint baseColumnNames="reclamations_id" baseTableName="reclamation_nm_etat" constraintName="FKpw61crpmjumo6qfl0ymkx8xtq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-11">
+        <addForeignKeyConstraint baseColumnNames="nm_etats_id" baseTableName="reclamation_nm_etat" constraintName="FKtmyv36pfykdo4kemrpb3xpnit" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-12">
+        <dropColumn columnName="action_id" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-13">
+        <dropColumn columnName="etat_id" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-14">
+        <dropColumn columnName="etat_libelle" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-15">
+        <dropColumn columnName="phase_actuelle" tableName="action"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-16">
+        <dropColumn columnName="phase_libelle" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-17">
+        <dropColumn columnName="type_id" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-18">
+        <dropColumn columnName="type_libelle" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-19">
+        <dropColumn columnName="updated_at" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-20">
+        <addNotNullConstraint columnDataType="bigint" columnName="actions_id" tableName="action_nm_phase_suivant"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-21">
+        <dropNotNullConstraint columnDataType="bytea" columnName="created_at" tableName="reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-22">
+        <addNotNullConstraint columnDataType="bigint" columnName="id" tableName="historique_reclamation"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-23">
+        <addNotNullConstraint columnDataType="bigint" columnName="nm_etats_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-24">
+        <addNotNullConstraint columnDataType="bigint" columnName="nm_phase_suivants_id" tableName="action_nm_phase_suivant"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-25">
+        <addNotNullConstraint columnDataType="bigint" columnName="phases_id" tableName="reclamation_phase"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-26">
+        <addNotNullConstraint columnDataType="bigint" columnName="reclamations_id" tableName="reclamation_nm_etat"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-27">
+        <addNotNullConstraint columnDataType="bigint" columnName="reclamations_id" tableName="reclamation_phase"/>
+    </changeSet>
+    <changeSet author="DELL (generated)" id="1603647593636-28">
+        <dropNotNullConstraint columnDataType="bytea" columnName="updated_at" tableName="reclamation"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reclamation-heading" jhiTranslate="reclamationApp.reclamation.home.createOrEditLabel">Create or edit a Reclamation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reclamation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reclamation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="reclamation.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.titre" for="field_titre">Titre</label>
+                    <input type="text" class="form-control" name="titre" id="field_titre"
+                        [(ngModel)]="reclamation.titre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.created_at" for="field_created_at">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_created_at" type="datetime-local" class="form-control" name="created_at" [(ngModel)]="created_at"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.created_by" for="field_created_by">Created By</label>
+                    <input type="text" class="form-control" name="created_by" id="field_created_by"
+                        [(ngModel)]="reclamation.created_by" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.updated_at" for="field_updated_at">Updated At</label>
+                    <div class="d-flex">
+                        <input id="field_updated_at" type="datetime-local" class="form-control" name="updated_at" [(ngModel)]="updated_at"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.affected_to" for="field_affected_to">Affected To</label>
+                    <input type="text" class="form-control" name="affected_to" id="field_affected_to"
+                        [(ngModel)]="reclamation.affected_to" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="reclamationApp.reclamation.nm_Etat" for="field_nm_Etat">Nm Etat</label>
+                    <select class="form-control" id="field_nm_Etat" multiple name="nm_Etat" [(ngModel)]="reclamation.nm_Etats">
+                        <option [ngValue]="getSelected(reclamation.nm_Etats, nm_EtatOption)" *ngFor="let nm_EtatOption of nm_etats; trackBy: trackNm_EtatById">{{nm_EtatOption.libelle}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reclamationApp.reclamation.nm_TypeReclamation" for="field_nm_TypeReclamation">Nm Type Reclamation</label>
+                    <select class="form-control" id="field_nm_TypeReclamation" name="nm_TypeReclamation" [(ngModel)]="reclamation.nm_TypeReclamation" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nm_TypeReclamationOption.id === reclamation.nm_TypeReclamation?.id ? reclamation.nm_TypeReclamation : nm_TypeReclamationOption" *ngFor="let nm_TypeReclamationOption of nm_typereclamations; trackBy: trackNm_TypeReclamationById">{{nm_TypeReclamationOption.libelle}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="reclamationApp.reclamation.phase" for="field_phase">Phase</label>
+                    <select class="form-control" id="field_phase" multiple name="phase" [(ngModel)]="reclamation.phases">
+                        <option [ngValue]="getSelected(reclamation.phases, actionOption)" *ngFor="let actionOption of actions; trackBy: trackActionById">{{actionOption.nm_PhaseSuivants[0].libelle}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
